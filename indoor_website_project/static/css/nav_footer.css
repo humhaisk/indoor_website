@@ -21,3 +21,15 @@ body {
 .offcanvas-body .navbar-nav .nav-item {
     padding: 0.5rem 0;
 }
+
+/* footer section */
+/* Styling for the circular social media buttons in the footer */
+.btn-social {
+    border-radius: 50%; /* Makes the button circular */
+    width: 3.2rem;
+    height: 3.2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; /* Adjust icon size */
+}
