@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-zhlv%etn6nc(p+0%6#^fh&rg@v79769mnl)i9aaa6eli7f$qmk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://indoor-website.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1','https://indoor-website.onrender.com']
 
 #https://indoor-website.onrender.com
 # Application definition
@@ -128,4 +128,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "my-local-secret-key-12345"
