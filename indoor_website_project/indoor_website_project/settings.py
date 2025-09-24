@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-zhlv%etn6nc(p+0%6#^fh&rg@v79769mnl)i9aaa6eli7f$qmk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'indoor-website.onrender.com'
+]
 #https://indoor-website.onrender.com
 # Application definition
 
