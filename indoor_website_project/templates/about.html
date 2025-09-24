@@ -1,16 +1,86 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block head_data %}
     <title>Indoor Tournament Showdown</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock head_data %}
 
 {% block body_code %}
-    <p>ABOUT PAGE WILL BE ADDED SOON</p>
+<div class="about-container">
+
+    <!-- About Tournament -->
+    <section class="about-section">
+        <h2 class="section-title">ABOUT TOURNAMENT</h2>
+        <p class="section-text">
+            The <strong>Meghnad Saha Indoor Championship</strong> is the annual indoor gaming event of 
+            <strong>MSIT, Kolkata</strong>. This championship brings together the best talents to compete in 
+            four exciting indoor games – <strong>Chess, Badminton, Table Tennis, and Carrom</strong>. 
+            The tournament is designed to showcase skill, sportsmanship, and unity among students.
+        </p>
+    </section>
+
+    <!-- Organizing Committee -->
+    <section class="committee-section">
+        <h2 class="section-title">ORGANIZING COMMIITTEE</h2>
+        <div class="committee-grid">
+            <div class="committee-card">
+                <img src="{% static 'img/President.jpg' %}" alt="President">
+                <h3>President</h3>
+                <p>Leads the committee and oversees the entire tournament.</p>
+            </div>
+            <div class="committee-card">
+                <img src="{% static 'img/president.png' %}" alt="Vice President">
+                <h3>Vice President</h3>
+                <p>Supports the president and coordinates all events smoothly.</p>
+            </div>
+            <div class="committee-card">
+                <img src="{% static 'img/president.png' %}" alt="Secretary">
+                <h3>Secretary</h3>
+                <p>Handles official records, notices, and communication.</p>
+            </div>
+            <div class="committee-card">
+                <img src="{% static 'img/president.png' %}" alt="Joint Secretary">
+                <h3>Joint Secretary</h3>
+                <p>Assists the secretary and manages logistics effectively.</p>
+            </div>
+            <div class="committee-card">
+                <img src="{% static 'img/president.png' %}" alt="Treasurer">
+                <h3>Treasurer</h3>
+                <p>Manages tournament finances and ensures transparency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About College -->
+    <section class="college-section">
+        <h2 class="section-title">ABOUT MSIT</h2>
+        <p class="section-text">
+            <strong>Meghnad Saha Institute of Technology (MSIT)</strong>, located at Ruby, Kolkata – 700107, 
+            is one of the premier engineering institutions in West Bengal. The institute fosters academic 
+            excellence, innovation, and extracurricular activities, providing students with a holistic 
+            educational experience.
+        </p>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="rules-section">
+        <h2 class="section-title">TOURNAMENT RULES</h2>
+        <ul class="rules-list">
+            <li>All participants must carry a valid college ID card.</li>
+            <li>Games will follow standard national rules for Chess, Badminton, Table Tennis, and Carrom.</li>
+            <li>Decisions of referees/umpires are final and binding.</li>
+            <li>Players must report to their matches on time, failing which walkover will be awarded.</li>
+            <li>Fair play and sportsmanship must be maintained at all times.</li>
+        </ul>
+    </section>
+
+</div>
 {% endblock %}
 
 {% block js_data %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./static/js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/about.js' %}"></script>
 {% endblock %}
