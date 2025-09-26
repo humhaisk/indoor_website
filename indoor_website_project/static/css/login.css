@@ -1,0 +1,223 @@
+/* Only one .invalid-feedback block needed */
+.invalid-feedback {
+    color: #ff4d4f;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+/* File: login.css - Styles for the user profile login page. */
+
+/* --- Color and Font Variables --- */
+:root {
+    --dark-bg: #000000; /* Main background color from your site's theme */
+    --dark-card: #2c3034; /* Slightly lighter for the card background */
+    --dark-input: #3a3f44; /* Background for input fields */
+    --dark-border: #495057; /* Border color for inputs */
+    --text-light: #f8f9fa; /* Primary text color */
+    --text-muted-dark: #adb5bd; /* Muted text for placeholders */
+    --primary-accent: #0d6efd; /* A bright color for interactive elements */
+    --primary-accent-hover: #0b5ed7; /* Hover state for primary elements */
+    --success-gradient: linear-gradient(45deg, #28a745, #218838);
+    --warning-bg: #ffc107;
+    --warning-text: #212529;
+}
+
+/* --- Main Body Layout --- */
+.profile-body {
+    font-family: 'Poppins', sans-serif; /* Professional and modern font */
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 4rem 1rem; /* Spacing from header and footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ensures the form is centered vertically */
+}
+
+/* --- Profile Form Container --- */
+.profile-container {
+    background-color: var(--dark-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--dark-border);
+    animation: fadeIn 0.8s ease-in-out; /* Smooth entrance animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Profile Picture Section --- */
+.profile-picture-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.profile-picture-wrapper:hover {
+    transform: scale(1.05) rotate(2deg); /* Subtle hover animation */
+}
+
+#profilePicture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--dark-input);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#uploadIcon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: var(--primary-accent);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid var(--dark-card);
+    transition: all 0.3s ease;
+}
+
+#uploadIcon:hover {
+    background-color: var(--primary-accent-hover);
+    transform: rotate(10deg) scale(1.1);
+}
+
+#profilePictureInput {
+    display: none; /* Hide the default file input */
+}
+
+/* --- 'Not Verified' Button --- */
+.not-verified-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--warning-bg);
+    color: var(--warning-text);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: help;
+}
+
+.not-verified-btn:hover {
+    background-color: #e0a800;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- Form Inputs and Labels --- */
+.form-group label {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    background-color: var(--dark-input);
+    color: var(--text-light);
+    border: 1px solid var(--dark-border);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-control::placeholder {
+    color: var(--text-muted-dark);
+}
+.form-control:focus {
+    background-color: var(--dark-input);
+    color: var(--text-light);
+    border-color: var(--primary-accent);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* --- Custom File Input Styling --- */
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-file-input::before {
+    content: 'Upload File';
+    display: inline-block;
+    background: var(--primary-accent);
+    color: white;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+.custom-file-input {
+    background-color: var(--dark-input);
+    color: var(--text-light);
+    border: 1px solid var(--dark-border);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.custom-file-input:hover::before {
+    background-color: var(--primary-accent-hover);
+}
+
+.custom-file-input:hover::before {
+    background-color: var(--primary-accent-hover);
+}
+
+#fileName {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted-dark);
+    min-height: 1.2rem; /* Reserve space to prevent layout shift */
+}
+
+/* --- Save Button --- */
+.save-btn {
+    background: var(--success-gradient);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    transition: all 0.3s ease;
+}
+.save-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(40, 167, 69, 0.4);
+}
+.save-btn:active {
+    transform: translateY(-1px);
+}
+.save-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

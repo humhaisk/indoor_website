@@ -9,7 +9,6 @@
 
 {% block body_code %}
 <div class="about-container">
-
     <!-- About Tournament -->
     <section class="about-section">
         <h2 class="section-title">ABOUT TOURNAMENT</h2>
@@ -25,36 +24,25 @@
     <section class="committee-section">
         <h2 class="section-title">ORGANIZING COMMIITTEE</h2>
         <div class="committee-grid">
+            {% for member in members %}
             <div class="committee-card">
-                <img src="{% static 'img/President.jpg' %}" alt="President">
-                <h3>President</h3>
-                <p>Leads the committee and oversees the entire tournament.</p>
+                <p>Batch: {{ member.member_YOG }} | Dept: {{ member.member_Department }} </p>
+                {% if member.member_Pic.url %}
+                    <!-- <p>Meghnad Saha Indoor Championship</p> -->
+                    <img src="{{ member.member_Pic.url }}" alt="Profile">
+                {% else %}
+                    <img src="{% static 'img/president.png' %}" alt="No Image" style="opacity:0.5;">
+                {% endif %}
+                <h3>{{ member.member_Name }}</h3>
+                <h5>{{ member.member_Role }}</h5>
+                <a href="{{ member.member_InstaID }}" target="_blank" class="btn btn-outline-light btn-lg mt-2">Instagram ID</a>
             </div>
-            <div class="committee-card">
-                <img src="{% static 'img/president.png' %}" alt="Vice President">
-                <h3>Vice President</h3>
-                <p>Supports the president and coordinates all events smoothly.</p>
-            </div>
-            <div class="committee-card">
-                <img src="{% static 'img/president.png' %}" alt="Secretary">
-                <h3>Secretary</h3>
-                <p>Handles official records, notices, and communication.</p>
-            </div>
-            <div class="committee-card">
-                <img src="{% static 'img/president.png' %}" alt="Joint Secretary">
-                <h3>Joint Secretary</h3>
-                <p>Assists the secretary and manages logistics effectively.</p>
-            </div>
-            <div class="committee-card">
-                <img src="{% static 'img/president.png' %}" alt="Treasurer">
-                <h3>Treasurer</h3>
-                <p>Manages tournament finances and ensures transparency.</p>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
     <!-- About College -->
-    <section class="college-section">
+    <section class="college-section pt-5">
         <h2 class="section-title">ABOUT MSIT</h2>
         <p class="section-text">
             <strong>Meghnad Saha Institute of Technology (MSIT)</strong>, located at Ruby, Kolkata – 700107, 

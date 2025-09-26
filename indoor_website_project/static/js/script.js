@@ -19,7 +19,25 @@ function startCountdown(targetDate) {
     }, 1000);
 }
 
+
 // Set a target date (e.g., 3 days from now)
 const targetDate = new Date();
 targetDate.setDate(targetDate.getDate() + 3);
 startCountdown(targetDate);
+
+document.addEventListener('DOMContentLoaded', function() {
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        const dropdownButton = document.getElementById('game-select-btn');
+        dropdownItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdownButton.textContent = this.textContent;
+
+});
+});
+const gameSelectBtn = document.getElementById('game-select-btn');
+const matchupDisplay = document.getElementById('matchup-display');
+gameSelectBtn.addEventListener('click', function() {
+    matchupDisplay.classList.toggle('d-none');
+
+});
