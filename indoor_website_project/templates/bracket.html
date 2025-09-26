@@ -3,12 +3,9 @@
 
 {% block head_data %}
     <title>Tournament Bracket</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock head_data %}
-<!-- </head>
-<body class="bg-dark text-white"> -->
-{% block body_code %}    
+
+{% block body_code %}
     <main class="container py-5" style="min-height: 90vh;">
         <h1 class="mb-4">Match Schedules</h1>
         <div class="d-flex justify-content-end mb-4">
@@ -24,34 +21,88 @@
                 </ul>
             </div>
         </div>
+
         <div id="matchup-display" class="d-none mt-5">
             <h2 id="matchup-title" class="text-center mb-4">Matchup</h2>
-            <div class="row align-items-center">
-                <div class="col">
-                    <div class="card matchup-card text-center">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-5 mb-3">
+                    <div class="card matchup-card text-center themed-card">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/100" alt="Team A Logo" class="team-logo mb-3">
-                            <h4 class="card-title">Team A</h4>
+                            <div class="team-logo-container mb-3">
+                                <img src="https://via.placeholder.com/100" alt="Team A Logo" class="team-logo rounded-circle team-image-border">
+                            </div>
+                            <h4 class="card-title text-white">Team A</h4>
+                            <p class="card-text text-muted">Batch: N/A | Dept: N/A</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <span class="vs-text">VS</span>
+                <div class="col-auto mb-3">
+                    <span class="vs-text display-4 fw-bold text-white">VS</span>
                 </div>
-                <div class="col">
-                    <div class="card matchup-card text-center">
+                <div class="col-12 col-md-5 mb-3">
+                    <div class="card matchup-card text-center themed-card">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/100" alt="Team B Logo" class="team-logo mb-3">
-                            <h4 class="card-title">Team B</h4>
+                            <div class="team-logo-container mb-3">
+                                <img src="https://via.placeholder.com/100" alt="Team B Logo" class="team-logo rounded-circle team-image-border">
+                            </div>
+                            <h4 class="card-title text-white">Team B</h4>
+                            <p class="card-text text-muted">Batch: N/A | Dept: N/A</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- gfjhgfgh -->
+            <h2 id="matchup-title" class="text-center mb-4">Matchup</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-5 mb-3">
+                    <div class="card matchup-card text-center themed-card">
+                        <div class="card-body">
+                            <div class="team-logo-container mb-3">
+                                <img src="https://via.placeholder.com/100" alt="Team A Logo" class="team-logo rounded-circle team-image-border">
+                            </div>
+                            <h4 class="card-title text-white">Team A</h4>
+                            <p class="card-text text-muted">Batch: N/A | Dept: N/A</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto mb-3">
+                    <span class="vs-text display-4 fw-bold text-white">VS</span>
+                </div>
+                <div class="col-12 col-md-5 mb-3">
+                    <div class="card matchup-card text-center themed-card">
+                        <div class="card-body">
+                            <div class="team-logo-container mb-3">
+                                <img src="https://via.placeholder.com/100" alt="Team B Logo" class="team-logo rounded-circle team-image-border">
+                            </div>
+                            <h4 class="card-title text-white">Team B</h4>
+                            <p class="card-text text-muted">Batch: N/A | Dept: N/A</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</main>
+        </main>
 {% endblock body_code %}
-{% block js_data %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
 
+{% block js_data %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gameSelectBtn = document.getElementById('game-select-btn');
+            const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+            const matchupDisplay = document.getElementById('matchup-display');
+            const matchupTitle = document.getElementById('matchup-title');
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const selectedGame = this.textContent.trim();
+
+                    gameSelectBtn.textContent = selectedGame;
+
+                    matchupTitle.textContent = selectedGame + ' Matchup';
+                    matchupDisplay.classList.remove('d-none');
+                });
+            });
+        });
+    </script>
 {% endblock js_data %}
