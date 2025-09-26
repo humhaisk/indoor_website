@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'indoor_website_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'indoor_db',     # Database name
+        'USER': 'root', # MySQL username
+        'PASSWORD': 'sksql2002',    # MySQL password
+        'HOST': 'localhost',        # Or your DB server IP
+        'PORT': '3306',             # Default MySQL port
     }
 }
 
