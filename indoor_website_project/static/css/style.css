@@ -1,11 +1,26 @@
+/* =================================
+   1. Theme Variables & General Layout
+   ================================= */
+
+:root {
+    --dark-bg: #121212;
+    --dark-card-bg: #1a1a1a;
+    --accent-green: #00ff00;
+    --text-light: #f0f0f0;
+    --text-dark: #1a1a1a;
+    --text-muted: #6c757d;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
+
 main {
     flex: 1;
 }
@@ -15,63 +30,86 @@ footer {
     width: 100%;
 }
 
-/* Header */
 header {
-    border-bottom: 2px solid #28a745;
+    border-bottom: 2px solid var(--accent-green);
 }
 
 .nav-link.active {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid var(--text-light);
 }
 
 .countdown-timer {
-    color: #28a745;
+    color: var(--accent-green);
     font-weight: bold;
 }
 
-/* Match Card */
-.match-card {
-    background-color: #1a1a1a;
-    border: 1px solid #28a745;
+
+/* =================================
+   2. Reusable Components (Cards, Buttons)
+   ================================= */
+
+/* --- Unified Card Style --- */
+/* Use this class for all cards, including team members and matchups */
+.themed-card {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--accent-green);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.15);
+    transition: transform 0.2s ease-in-out;
 }
 
-/* Card */
-.card {
-    background-color: #1a1a1a !important;
-    border: none !important;
+.themed-card:hover {
+    transform: translateY(-5px);
 }
 
-.card img {
-    border-bottom: 1px solid #28a745;
+/* --- Team Logo/Image Style --- */
+.team-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid var(--accent-green);
+    border-radius: 50%; /* Ensures the image is a perfect circle */
 }
 
 
-/* Schedule page */
-.bracket-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* --- Custom Primary Button --- */
+.btn-primary {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: var(--text-dark);
+    font-weight: bold;
 }
 
-.bracket-round {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #00e600; /* Slightly darker green */
+    border-color: #00e600;
+    color: var(--text-dark);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
-.bracket-match {
-    background-color: #1a1a1a;
-    border: 1px solid #28a745;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    text-align: center;
-    min-width: 250px;
+
+/* =================================
+   3. Page-Specific Styles
+   ================================= */
+
+/* --- Dropdown Menu --- */
+.dropdown-menu {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--accent-green);
 }
 
-.bracket-line {
-    width: 2px;
-    height: 40px;
-    background-color: #28a745;
+.dropdown-item {
+    color: var(--text-light);
 }
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--accent-green);
+    color: var(--text-dark);
+}
+
+/* Note: The old ".bracket-match" styles are no longer needed.
+   Just use class="themed-card" on your match containers in the HTML. */

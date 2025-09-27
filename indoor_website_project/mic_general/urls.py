@@ -1,11 +1,13 @@
-from django.contrib import admin
 from django.urls import path
-from mic_general import views
+from . import views
 
 urlpatterns = [
-    path('',views.home, name='home'), 
-    path('schedule/',views.schedule, name='schedule'),
-    path('team/',views.team, name='team'),
-    path('about/',views.about, name='about'),
-    path('login/',views.login, name='login'),
+    path('', views.home_view, name='home'),
+    path('schedule/', views.schedule_view, name='schedule'),
+    path('team/', views.team_view, name='team'),
+    path('about/', views.about_view, name='about'),
+    path('login/', views.login_view, name='login'),
+    
+    # This is the dynamic path for a single team's detail page
+    path('team/<str:team_name>/', views.team_detail_view, name='team_detail'),
 ]
