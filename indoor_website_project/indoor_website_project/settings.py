@@ -30,7 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'https://sk-indoor.onrender.com'
+    'sk-indoor.onrender.com',
+    '.onrender.com'
 ]
 #https://indoor-website.onrender.com
 # Application definition
