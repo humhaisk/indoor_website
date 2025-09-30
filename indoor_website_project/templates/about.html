@@ -26,6 +26,7 @@
         <div class="committee-grid">
             {% for member in members %}
             <div class="committee-card">
+                {{member.id}}
                 <p>Batch: {{ member.member_YOG }} | Dept: {{ member.member_Department }} </p>
                 {% if member.member_Pic.url %}
                     <!-- <p>Meghnad Saha Indoor Championship</p> -->
